@@ -107,7 +107,33 @@ class _AddFeedScreenState extends State<AddFeedScreen> {
             fontSize: 18,
           ),
         ),
-       
+        actions: [
+          Consumer<FeedProvider>(
+            builder: (context, feedProvider, _) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 16, top: 12, bottom: 12),
+                child: ElevatedButton(
+                  onPressed: feedProvider.isLoading || _isValidating
+                      ? null
+                      : _submit,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF320E0E),
+                    foregroundColor: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                  ),
+                  child: const Text(
+                    'Create Post',
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Consumer<FeedProvider>(
         builder: (context, feedProvider, _) {
