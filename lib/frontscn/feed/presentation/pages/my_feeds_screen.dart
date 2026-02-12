@@ -15,19 +15,7 @@ class _MyFeedsScreenState extends State<MyFeedsScreen> {
   int? _playingFeedId;
 
   @override
-  void initState() {
-    super.initState();
-    Future.microtask(
-      () => context.read<FeedProvider>().fetchMyFeeds(refresh: true),
-    );
-
-    _scrollController.addListener(() {
-      if (_scrollController.position.pixels >=
-          _scrollController.position.maxScrollExtent - 200) {
-        context.read<FeedProvider>().fetchMyFeeds();
-      }
-    });
-  }
+ 
 
   @override
   void dispose() {
