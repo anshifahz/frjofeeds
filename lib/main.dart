@@ -44,9 +44,9 @@ class MyApp extends StatelessWidget {
       home: Consumer<AuthProvider>(
         builder: (context, auth, _) {
           if (auth.token != null) {
-            return const HomeScreen();
+            return const ApiLoginPage();
           }
-          return const ApiLoginPage();
+          return const HomeScreen();
         },
       ),
     );

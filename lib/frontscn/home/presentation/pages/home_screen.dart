@@ -18,15 +18,7 @@ class HomeScreenState extends State<HomeScreen> {
   String selectedCategoryId = "0"; // Default to Explore as per mockup
 
   @override
-  void initState() {
-    super.initState();
-    Future.microtask(() {
-      final homeProvider = context.read<HomeProvider>();
-      homeProvider.fetchCategories();
-      homeProvider.fetchHomeFeeds();
-    });
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
